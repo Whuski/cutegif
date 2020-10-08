@@ -1,9 +1,15 @@
 import React, {useState, useRef} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Button, Container} from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import strings from './strings';
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Image, Alert
+} from 'react-bootstrap';
+
 
 const client = require('nekos.life');
 const neko = new client();
@@ -12,28 +18,14 @@ const randoms = {
   "hug": neko.sfw.hug,
   "pat": neko.sfw.pat,
   "meow": neko.sfw.meow,
+  "cuddle": neko.sfw.cuddle,
 }
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-  image: {
-    textAlign: 'center',
-    margin: '2em'
-  }
-}));
 
 
 function App() {
-  const classes = useStyles();
   const [nekoUrl, setNekoUrl] = useState(logo);
   const [isCopied, setCopied] = useState(false);
+  const [bottomText, setBottom] = useState(strings.bottomText);
 
   const textAreaRef = useRef(null);
   const randomImg = async (value) => {
@@ -48,47 +40,48 @@ function App() {
     document.execCommand("copy");
     setCopied(true);
   }
+  
+  const owoify = async (e) => {
+    let res = await fetch("https://nekos.life/api/v2/owoify?text=" + strings.eng.bottomText);
+    res = await res.json();
+    setBottom(res.owo);
+  }
 
   return (
-    <div className={classes.root}>
-      <Container maxWidth="sm">
-        <Grid container spacing={3}>
-          <Grid item xs={3}>
-            <Button variant="contained" onClick={() => randomImg("hug")}>Random hug</Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button variant="contained" onClick={() => randomImg("kiss")}>Random kiss</Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button variant="contained" onClick={() => randomImg("pat")}>Random pat</Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button variant="contained" onClick={() => randomImg("meow")}>Random meow</Button>
-          </Grid>
-        </Grid>
-        <div id="image" className={classes.image}>
-          <img src={nekoUrl} alt="random cute gif"/>
-        </div>
-        <div id="url">  
-          <textarea value={nekoUrl} ref={textAreaRef} readOnly/>
-          <p>{isCopied ? "URL COPIED TO UR CLIPBOARD" : ""}</p>
-        </div>
-        <div>
-          <p>This website was made possible thanks to the mega cool guys at <a href="https://nekos.life">nekos.life</a> ! ❤</p>
-          <p>Do not base anything over this really badly made website, I'm using it to learn a bunch of javascript framework and mostly made it for myself</p>
-          <p>Please do not beat me up for this code, I know it's not good</p>
-        </div>
-
-      </Container>
+    <Container className="p-3">
+      <Row className="justify-content-md-center">
+        <h1 className="header">Welcome to CuteGif</h1>
+      </Row>
       
-      </div>        
-        
-        
-        
-      
+      <Row className="justify-content-md-center mb-5">
+        <Col md="auto"><Button variant="primary" onClick={() => randomImg("hug")}>RANDOM HUGS</Button></Col>
+        <Col md="auto"><Button variant="primary" onClick={() => randomImg("pat")}>RANDOM PAT</Button></Col>
+        <Col md="auto"><Button variant="primary" onClick={() => randomImg("kiss")}>RANDOM KISS</Button></Col>
+        <Col md="auto"><Button variant="primary" onClick={() => randomImg("meow")}>RANDOM MEOW</Button></Col>
+        <Col md="auto"><Button variant="primary" onClick={() => randomImg("cuddle")}>RANDOM CUDDLE</Button></Col>
+      </Row>
 
-      
-
+      <Row className="justify-content-md-center mb-5">
+        <Image src={nekoUrl} />
+      </Row>
+      <Row className="justify-content-md-center mb-5">
+        <textarea ref={textAreaRef} value={nekoUrl}></textarea>
+      </Row>
+      <Row className="justify-content-md-center">
+        {
+          isCopied ? <Alert variant="success">Url is copied to ur clipboard</Alert> : ""
+        }
+      </Row>
+      <Row>
+        <p>This website was made possible because there's some really nice people who made a website with an api called <a href="nekos.life">nekos.life</a> 🧡</p>
+        <p>
+          {bottomText}
+        </p>
+      </Row>
+      <Row>
+        <Button onClick={owoify}>OWO</Button>
+      </Row>
+    </Container>
   );
 }
 
