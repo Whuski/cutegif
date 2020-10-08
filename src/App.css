@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+#links a {
+  display: inline-block;
+  padding: 1em;
+  margin: 0.5em;
+  text-decoration: none;
+  background-color: blue;
+  color: white;
+}
+#links {
+  display: inline-block;
+  margin-bottom: 2em;
+}
