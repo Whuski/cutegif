@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/cutegif/static/css/main.6b1cd203.chunk.css",
+    "main.js": "/cutegif/static/js/main.a22462fc.chunk.js",
+    "main.js.map": "/cutegif/static/js/main.a22462fc.chunk.js.map",
+    "runtime-main.js": "/cutegif/static/js/runtime-main.87910914.js",
+    "runtime-main.js.map": "/cutegif/static/js/runtime-main.87910914.js.map",
+    "static/js/2.2b75a7fb.chunk.js": "/cutegif/static/js/2.2b75a7fb.chunk.js",
+    "static/js/2.2b75a7fb.chunk.js.map": "/cutegif/static/js/2.2b75a7fb.chunk.js.map",
+    "index.html": "/cutegif/index.html",
+    "precache-manifest.d535b28edfcc8ce575c3ec322fdefb46.js": "/cutegif/precache-manifest.d535b28edfcc8ce575c3ec322fdefb46.js",
+    "service-worker.js": "/cutegif/service-worker.js",
+    "static/css/main.6b1cd203.chunk.css.map": "/cutegif/static/css/main.6b1cd203.chunk.css.map",
+    "static/js/2.2b75a7fb.chunk.js.LICENSE.txt": "/cutegif/static/js/2.2b75a7fb.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/cutegif/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.87910914.js",
+    "static/js/2.2b75a7fb.chunk.js",
+    "static/css/main.6b1cd203.chunk.css",
+    "static/js/main.a22462fc.chunk.js"
+  ]
+}
