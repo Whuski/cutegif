@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Button} from '@material-ui/core'
 const client = require('nekos.life');
 const neko = new client();
 const randoms = {
@@ -10,28 +11,35 @@ const randoms = {
   "meow": neko.sfw.meow,
 }
 
-function App() {
-  const [nekoUrl, setNekoUrl] = useState("");
 
+function App() {
+  const [nekoUrl, setNekoUrl] = useState(logo);
+  const textAreaRef = useRef(null);
   const randomImg = async (value) => {
     let cute = await randoms[value]()
     setNekoUrl(cute.url);
-    console.log(cute.url);
+    copyText();
+  }
+
+  const copyText = (e) => {
+    console.log("Copy text triggered");
+    textAreaRef.current.select();
+    document.execCommand("copy");
   }
 
   return (
     <div className="App">
       <div id="links">
-        <a href="#" onClick={() => randomImg("hug")}>Random hug</a>
-        <a href="#" onClick={() => randomImg("kiss")}>Random kiss</a>
-        <a href="#" onClick={() => randomImg("pat")}>Random pat</a>
-        <a href="#" onClick={() => randomImg("meow")}>Random meow</a>
+        <Button variant="contained" onClick={() => randomImg("hug")} color="primary">Random hug</Button>
+        <Button variant="contained" onClick={() => randomImg("kiss")}>Random kiss</Button>
+        <Button variant="contained" onClick={() => randomImg("pat")}>Random pat</Button>
+        <Button variant="contained" onClick={() => randomImg("meow")}>Random meow</Button>
       </div>
       <div id="image">
-        <img src={nekoUrl} alt="rando cute gif"/>
+        <img src={nekoUrl} alt="random cute gif"/>
       </div>
-      <div id="url">
-        <textarea value={nekoUrl} readOnly/>
+      <div id="url">  
+        <textarea value={nekoUrl} ref={textAreaRef} readOnly/>
       </div>
     </div>
   );
