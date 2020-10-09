@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/cutegif/static/css/main.1d5551b2.chunk.css",
-    "main.js": "/cutegif/static/js/main.d22513bc.chunk.js",
-    "main.js.map": "/cutegif/static/js/main.d22513bc.chunk.js.map",
+    "main.js": "/cutegif/static/js/main.4231fb1a.chunk.js",
+    "main.js.map": "/cutegif/static/js/main.4231fb1a.chunk.js.map",
     "runtime-main.js": "/cutegif/static/js/runtime-main.87910914.js",
     "runtime-main.js.map": "/cutegif/static/js/runtime-main.87910914.js.map",
     "static/css/2.d9ad5f5c.chunk.css": "/cutegif/static/css/2.d9ad5f5c.chunk.css",
     "static/js/2.182cbcd2.chunk.js": "/cutegif/static/js/2.182cbcd2.chunk.js",
     "static/js/2.182cbcd2.chunk.js.map": "/cutegif/static/js/2.182cbcd2.chunk.js.map",
     "index.html": "/cutegif/index.html",
-    "precache-manifest.518aa673afe73dad6b66114730c10856.js": "/cutegif/precache-manifest.518aa673afe73dad6b66114730c10856.js",
+    "precache-manifest.64dfd307445c166e1514b6645ecaa511.js": "/cutegif/precache-manifest.64dfd307445c166e1514b6645ecaa511.js",
     "service-worker.js": "/cutegif/service-worker.js",
     "static/css/2.d9ad5f5c.chunk.css.map": "/cutegif/static/css/2.d9ad5f5c.chunk.css.map",
     "static/css/main.1d5551b2.chunk.css.map": "/cutegif/static/css/main.1d5551b2.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.d9ad5f5c.chunk.css",
     "static/js/2.182cbcd2.chunk.js",
     "static/css/main.1d5551b2.chunk.css",
-    "static/js/main.d22513bc.chunk.js"
+    "static/js/main.4231fb1a.chunk.js"
   ]
 }
