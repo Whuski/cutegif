@@ -42,7 +42,7 @@ function App() {
   }
   
   const owoify = async (e) => {
-    let res = await fetch("https://nekos.life/api/v2/owoify?text=" + strings.eng.bottomText);
+    let res = await fetch("https://nekos.life/api/v2/owoify?text=" + strings.bottomText);
     res = await res.json();
     setBottom(res.owo);
   }
