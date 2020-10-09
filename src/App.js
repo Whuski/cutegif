@@ -73,7 +73,7 @@ function App() {
         }
       </Row>
       <Row>
-        <p>This website was made possible because there's some really nice people who made a website with an api called <a href="nekos.life">nekos.life</a> 🧡</p>
+        <p>This website was made possible because there's some really nice people who made a website with an api called <a href="https://nekos.life">nekos.life</a> 🧡</p>
         <p>
           {bottomText}
         </p>
