@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "53ed748c829dbcde4cf92bc242602392",
+    "revision": "48592f5bed488735ed03896074bd6551",
     "url": "/cutegif/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cutegif/static/css/2.d9ad5f5c.chunk.css"
   },
   {
-    "revision": "00eda61a96e0156e2fea",
-    "url": "/cutegif/static/css/main.b11e0a93.chunk.css"
+    "revision": "5e2bc643a5ae11aca744",
+    "url": "/cutegif/static/css/main.1d5551b2.chunk.css"
   },
   {
     "revision": "c9f7517bc7a91d1428d8",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cutegif/static/js/2.182cbcd2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "00eda61a96e0156e2fea",
-    "url": "/cutegif/static/js/main.ee8a2a1c.chunk.js"
+    "revision": "5e2bc643a5ae11aca744",
+    "url": "/cutegif/static/js/main.d22513bc.chunk.js"
   },
   {
     "revision": "632650ce94734c4646bc",
