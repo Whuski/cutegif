@@ -22,7 +22,6 @@ function App() {
   const [nekoUrl, setNekoUrl] = useState(logo);
   const [isCopied, setCopied] = useState(false);
   const [bottomText, setBottom] = useState(strings.bottomText);
-  const [imageLoaded, setImageLoaded] = useState(false);
 
   const textAreaRef = useRef(null);
   const randomImg = async (value) => {
