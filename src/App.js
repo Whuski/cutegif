@@ -1,5 +1,6 @@
 import React, {useState, useRef} from 'react';
 import logo from './logo.svg';
+import ImgButton from "./ImgButton";
 import './App.css';
 import strings from './strings';
 import {
@@ -7,29 +8,26 @@ import {
   Row,
   Col,
   Button,
-  Image, Alert
+  Image, Alert, Spinner
 } from 'react-bootstrap';
 
+const defaultClassName = "justify-content-md-center mb-1"
 
 const client = require('nekos.life');
 const neko = new client();
-const randoms = {
-  "kiss": neko.sfw.kiss,
-  "hug": neko.sfw.hug,
-  "pat": neko.sfw.pat,
-  "meow": neko.sfw.meow,
-  "cuddle": neko.sfw.cuddle,
-}
+const randoms = ["hug","pat", "kiss", "meow", "cuddle", "baka"];
 
 
 function App() {
   const [nekoUrl, setNekoUrl] = useState(logo);
   const [isCopied, setCopied] = useState(false);
   const [bottomText, setBottom] = useState(strings.bottomText);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const textAreaRef = useRef(null);
   const randomImg = async (value) => {
-    let cute = await randoms[value]()
+    setNekoUrl("");
+    let cute = await neko.sfw[value]()
     setNekoUrl(cute.url);
     copyText();
   }
@@ -42,46 +40,46 @@ function App() {
   }
   
   const owoify = async (e) => {
-    let res = await fetch("https://nekos.life/api/v2/owoify?text=" + strings.eng.bottomText);
+    let res = await fetch("https://nekos.life/api/v2/owoify?text=" + strings.bottomText);
     res = await res.json();
     setBottom(res.owo);
   }
 
   return (
-    <Container className="p-3">
-      <Row className="justify-content-md-center">
-        <h1 className="header">Welcome to CuteGif</h1>
-      </Row>
-      
-      <Row className="justify-content-md-center mb-5">
-        <Col md="auto"><Button variant="primary" onClick={() => randomImg("hug")}>RANDOM HUGS</Button></Col>
-        <Col md="auto"><Button variant="primary" onClick={() => randomImg("pat")}>RANDOM PAT</Button></Col>
-        <Col md="auto"><Button variant="primary" onClick={() => randomImg("kiss")}>RANDOM KISS</Button></Col>
-        <Col md="auto"><Button variant="primary" onClick={() => randomImg("meow")}>RANDOM MEOW</Button></Col>
-        <Col md="auto"><Button variant="primary" onClick={() => randomImg("cuddle")}>RANDOM CUDDLE</Button></Col>
-      </Row>
+    <div className="App">
+      <Container className="p-3" fluid>
+        <Row className={defaultClassName}>
+          <h1 className="header">Welcome to CuteGif</h1>
+        </Row>
+        
+        <Row className={defaultClassName}>
+          {randoms.map((key) => 
+            <ImgButton handleClick={randomImg} value={key} />
+          )}
+        </Row>
 
-      <Row className="justify-content-md-center mb-5">
-        <Image src={nekoUrl} />
-      </Row>
-      <Row className="justify-content-md-center mb-5">
-        <textarea ref={textAreaRef} value={nekoUrl}></textarea>
-      </Row>
-      <Row className="justify-content-md-center">
-        {
-          isCopied ? <Alert variant="success">Url is copied to ur clipboard</Alert> : ""
-        }
-      </Row>
-      <Row>
-        <p>This website was made possible because there's some really nice people who made a website with an api called <a href="nekos.life">nekos.life</a> 🧡</p>
-        <p>
-          {bottomText}
-        </p>
-      </Row>
-      <Row>
-        <Button onClick={owoify}>OWO</Button>
-      </Row>
-    </Container>
+        <Row className={defaultClassName}>
+          <Col md="auto">{nekoUrl ? <Image src={nekoUrl} fluid /> : <Spinner animation="border"><span className="sr-only">Loading</span></Spinner>}</Col>
+        </Row>
+        <Row className={defaultClassName}>
+          <textarea className="mx-auto" ref={textAreaRef} value={nekoUrl} readOnly></textarea>
+        </Row>
+        <Row className={defaultClassName}>
+          {
+            isCopied ? <Alert variant="success">Url is copied to ur clipboard</Alert> : ""
+          }
+        </Row>
+        <Row className={defaultClassName}>
+          <p>This website was made possible because there's some really nice people who made a website with an api called <a href="https://nekos.life">nekos.life</a> 🧡</p>
+          <p>
+            {bottomText}
+          </p>
+        </Row>
+        <Row className={defaultClassName}>
+          <Button onClick={owoify}>OWO</Button>
+        </Row>
+      </Container>
+    </div>
   );
 }
 
