@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bbc304a6441b2a69526b0e09fb135634",
+    "revision": "3df8df35d9c299f974ea5be120cc172e",
     "url": "/cutegif/index.html"
   },
   {
-    "revision": "c9f7517bc7a91d1428d8",
+    "revision": "378bfe8b602eadd8f8a0",
     "url": "/cutegif/static/css/2.d9ad5f5c.chunk.css"
   },
   {
-    "revision": "cbb831e7eb629a3beaed",
-    "url": "/cutegif/static/css/main.1d5551b2.chunk.css"
+    "revision": "bef62bed0d1a570d1fad",
+    "url": "/cutegif/static/css/main.1faa66e9.chunk.css"
   },
   {
-    "revision": "c9f7517bc7a91d1428d8",
-    "url": "/cutegif/static/js/2.182cbcd2.chunk.js"
+    "revision": "378bfe8b602eadd8f8a0",
+    "url": "/cutegif/static/js/2.4bc09d2e.chunk.js"
   },
   {
     "revision": "bd10113d0fd5b36af10869686c65663c",
-    "url": "/cutegif/static/js/2.182cbcd2.chunk.js.LICENSE.txt"
+    "url": "/cutegif/static/js/2.4bc09d2e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "cbb831e7eb629a3beaed",
-    "url": "/cutegif/static/js/main.4231fb1a.chunk.js"
+    "revision": "bef62bed0d1a570d1fad",
+    "url": "/cutegif/static/js/main.e6a8a22c.chunk.js"
   },
   {
     "revision": "632650ce94734c4646bc",
